@@ -8,7 +8,7 @@ namespace MoviesApi.Controllers;
 public class MovieController : ControllerBase
 {
 
-    private readonly List<Movie> movies = new List<Movie>();
+    private static List<Movie> movies = new List<Movie>();
     private static int id = 0;
 
     [HttpPost("v1/add")]
