@@ -16,6 +16,7 @@ C:\Users\keoxc\OneDrive\Documentos\STUDY\movies-api\MoviesApi\MoviesApi\obj\Debu
 C:\Users\keoxc\OneDrive\Documentos\STUDY\movies-api\MoviesApi\MoviesApi\obj\Debug\net6.0\MoviesApi.csproj.CoreCompileInputs.cache
 C:\Users\keoxc\OneDrive\Documentos\STUDY\movies-api\MoviesApi\MoviesApi\obj\Debug\net6.0\MoviesApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\keoxc\OneDrive\Documentos\STUDY\movies-api\MoviesApi\MoviesApi\obj\Debug\net6.0\MoviesApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\keoxc\OneDrive\Documentos\STUDY\movies-api\MoviesApi\MoviesApi\obj\Debug\net6.0\MoviesApi.sourcelink.json
 C:\Users\keoxc\OneDrive\Documentos\STUDY\movies-api\MoviesApi\MoviesApi\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\keoxc\OneDrive\Documentos\STUDY\movies-api\MoviesApi\MoviesApi\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\keoxc\OneDrive\Documentos\STUDY\movies-api\MoviesApi\MoviesApi\obj\Debug\net6.0\staticwebassets\msbuild.MoviesApi.Microsoft.AspNetCore.StaticWebAssets.props
