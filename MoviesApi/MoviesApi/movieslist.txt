@@ -1,0 +1,608 @@
+[
+  {
+    "id": 0,
+    "title": "Rocky",
+    "genre": "Drama, Sport",
+    "year": 1976
+  },
+  {
+    "id": 1,
+    "title": "Rocky II",
+    "genre": "Drama, Sport",
+    "year": 1979
+  },
+  {
+    "id": 2,
+    "title": "Rocky III",
+    "genre": "Drama, Sport",
+    "year": 1982
+  },
+  {
+    "id": 3,
+    "title": "Rocky IV",
+    "genre": "Drama, Sport",
+    "year": 1985
+  },
+  {
+    "id": 4,
+    "title": "Rocky V",
+    "genre": "Drama, Sport",
+    "year": 1990
+  },
+  {
+    "id": 5,
+    "title": "Rambo: First Blood",
+    "genre": "Action, Adventure",
+    "year": 1982
+  },
+  {
+    "id": 6,
+    "title": "Rambo: First Blood Part II",
+    "genre": "Action, Adventure",
+    "year": 1985
+  },
+  {
+    "id": 7,
+    "title": "Rambo III",
+    "genre": "Action, Adventure",
+    "year": 1988
+  },
+  {
+    "id": 8,
+    "title": "Cliffhanger",
+    "genre": "Action, Adventure",
+    "year": 1993
+  },
+  {
+    "id": 9,
+    "title": "Demolition Man",
+    "genre": "Action, Sci-Fi",
+    "year": 1993
+  },
+  {
+    "id": 10,
+    "title": "Judge Dredd",
+    "genre": "Action, Crime, Sci-Fi",
+    "year": 1995
+  },
+  {
+    "id": 11,
+    "title": "Assassins",
+    "genre": "Action, Crime, Thriller",
+    "year": 1995
+  },
+  {
+    "id": 12,
+    "title": "The Specialist",
+    "genre": "Action, Crime, Thriller",
+    "year": 1994
+  },
+  {
+    "id": 13,
+    "title": "Cobra",
+    "genre": "Action, Crime, Thriller",
+    "year": 1986
+  },
+  {
+    "id": 14,
+    "title": "Over the Top",
+    "genre": "Action, Drama, Sport",
+    "year": 1987
+  },
+  {
+    "id": 15,
+    "title": "Tango & Cash",
+    "genre": "Action, Comedy, Crime",
+    "year": 1989
+  },
+  {
+    "id": 16,
+    "title": "The Expendables",
+    "genre": "Action, Adventure, Thriller",
+    "year": 2010
+  },
+  {
+    "id": 17,
+    "title": "The Terminator",
+    "genre": "Action, Sci-Fi",
+    "year": 1984
+  },
+  {
+    "id": 18,
+    "title": "Terminator 2: Judgment Day",
+    "genre": "Action, Sci-Fi",
+    "year": 1991
+  },
+  {
+    "id": 19,
+    "title": "Predator",
+    "genre": "Action, Adventure, Sci-Fi",
+    "year": 1987
+  },
+  {
+    "id": 20,
+    "title": "Total Recall",
+    "genre": "Action, Sci-Fi, Thriller",
+    "year": 1990
+  },
+  {
+    "id": 21,
+    "title": "Commando",
+    "genre": "Action, Adventure, Thriller",
+    "year": 1985
+  },
+  {
+    "id": 22,
+    "title": "True Lies",
+    "genre": "Action, Comedy, Thriller",
+    "year": 1994
+  },
+  {
+    "id": 23,
+    "title": "The Running Man",
+    "genre": "Action, Sci-Fi, Thriller",
+    "year": 1987
+  },
+  {
+    "id": 24,
+    "title": "Kindergarten Cop",
+    "genre": "Comedy, Crime",
+    "year": 1990
+  },
+  {
+    "id": 25,
+    "title": "Eraser",
+    "genre": "Action, Drama, Thriller",
+    "year": 1996
+  },
+  {
+    "id": 26,
+    "title": "Red Heat",
+    "genre": "Action, Comedy, Crime",
+    "year": 1988
+  },
+  {
+    "id": 27,
+    "title": "Last Action Hero",
+    "genre": "Action, Adventure, Comedy",
+    "year": 1993
+  },
+  {
+    "id": 28,
+    "title": "Raw Deal",
+    "genre": "Action, Crime, Thriller",
+    "year": 1986
+  },
+  {
+    "id": 29,
+    "title": "Conan the Barbarian",
+    "genre": "Action, Adventure, Fantasy",
+    "year": 1982
+  },
+  {
+    "id": 30,
+    "title": "Conan the Destroyer",
+    "genre": "Action, Adventure, Fantasy",
+    "year": 1984
+  },
+  {
+    "id": 31,
+    "title": "The 6th Day",
+    "genre": "Action, Mystery, Sci-Fi",
+    "year": 2000
+  },
+  {
+    "id": 32,
+    "title": "End of Days",
+    "genre": "Action, Fantasy, Horror",
+    "year": 1999
+  },
+  {
+    "id": 33,
+    "title": "The Last Stand",
+    "genre": "Action, Thriller",
+    "year": 2013
+  },
+  {
+    "id": 34,
+    "title": "Universal Soldier",
+    "genre": "Action, Sci-Fi",
+    "year": 1992
+  },
+  {
+    "id": 35,
+    "title": "Bloodsport",
+    "genre": "Action, Biography, Drama",
+    "year": 1988
+  },
+  {
+    "id": 36,
+    "title": "Kickboxer",
+    "genre": "Action, Sport",
+    "year": 1989
+  },
+  {
+    "id": 37,
+    "title": "Hard Target",
+    "genre": "Action, Adventure, Drama",
+    "year": 1993
+  },
+  {
+    "id": 38,
+    "title": "Timecop",
+    "genre": "Action, Crime, Sci-Fi",
+    "year": 1994
+  },
+  {
+    "id": 39,
+    "title": "Street Fighter",
+    "genre": "Action, Adventure, Sci-Fi",
+    "year": 1994
+  },
+  {
+    "id": 40,
+    "title": "Sudden Death",
+    "genre": "Action, Crime, Drama",
+    "year": 1995
+  },
+  {
+    "id": 41,
+    "title": "Lionheart",
+    "genre": "Action, Crime, Drama",
+    "year": 1990
+  },
+  {
+    "id": 42,
+    "title": "Death Warrant",
+    "genre": "Action, Crime, Drama",
+    "year": 1990
+  },
+  {
+    "id": 43,
+    "title": "Double Impact",
+    "genre": "Action, Crime, Drama",
+    "year": 1991
+  },
+  {
+    "id": 44,
+    "title": "The Quest",
+    "genre": "Action, Adventure",
+    "year": 1996
+  },
+  {
+    "id": 45,
+    "title": "Maximum Risk",
+    "genre": "Action, Crime, Thriller",
+    "year": 1996
+  },
+  {
+    "id": 46,
+    "title": "The Godfather",
+    "genre": "Crime, Drama",
+    "year": 1972
+  },
+  {
+    "id": 47,
+    "title": "The Godfather Part II",
+    "genre": "Crime, Drama",
+    "year": 1974
+  },
+  {
+    "id": 48,
+    "title": "The Godfather Part III",
+    "genre": "Crime, Drama",
+    "year": 1990
+  },
+  {
+    "id": 49,
+    "title": "Goodfellas",
+    "genre": "Biography, Crime, Drama",
+    "year": 1990
+  },
+  {
+    "id": 50,
+    "title": "Scarface",
+    "genre": "Crime, Drama",
+    "year": 1983
+  },
+  {
+    "id": 51,
+    "title": "Casino",
+    "genre": "Biography, Crime, Drama",
+    "year": 1995
+  },
+  {
+    "id": 52,
+    "title": "Heat",
+    "genre": "Action, Crime, Drama",
+    "year": 1995
+  },
+  {
+    "id": 53,
+    "title": "Carlito's Way",
+    "genre": "Crime, Drama, Thriller",
+    "year": 1993
+  },
+  {
+    "id": 54,
+    "title": "Donnie Brasco",
+    "genre": "Biography, Crime, Drama",
+    "year": 1997
+  },
+  {
+    "id": 55,
+    "title": "A Bronx Tale",
+    "genre": "Crime, Drama, Romance",
+    "year": 1993
+  },
+  {
+    "id": 56,
+    "title": "Once Upon a Time in America",
+    "genre": "Crime, Drama",
+    "year": 1984
+  },
+  {
+    "id": 57,
+    "title": "The Untouchables",
+    "genre": "Crime, Drama, Thriller",
+    "year": 1987
+  },
+  {
+    "id": 58,
+    "title": "Lethal Weapon",
+    "genre": "Action, Crime, Thriller",
+    "year": 1987
+  },
+  {
+    "id": 59,
+    "title": "Lethal Weapon 2",
+    "genre": "Action, Crime, Thriller",
+    "year": 1989
+  },
+  {
+    "id": 60,
+    "title": "Lethal Weapon 3",
+    "genre": "Action, Crime, Thriller",
+    "year": 1992
+  },
+  {
+    "id": 61,
+    "title": "Lethal Weapon 4",
+    "genre": "Action, Crime, Thriller",
+    "year": 1998
+  },
+  {
+    "id": 62,
+    "title": "Die Hard",
+    "genre": "Action, Thriller",
+    "year": 1988
+  },
+  {
+    "id": 63,
+    "title": "Die Hard 2",
+    "genre": "Action, Thriller",
+    "year": 1990
+  },
+  {
+    "id": 64,
+    "title": "Die Hard with a Vengeance",
+    "genre": "Action, Thriller",
+    "year": 1995
+  },
+  {
+    "id": 65,
+    "title": "Die Hard 4.0",
+    "genre": "Action, Thriller",
+    "year": 2007
+  },
+  {
+    "id": 66,
+    "title": "Speed",
+    "genre": "Action, Adventure, Thriller",
+    "year": 1994
+  },
+  {
+    "id": 67,
+    "title": "Point Break",
+    "genre": "Action, Crime, Thriller",
+    "year": 1991
+  },
+  {
+    "id": 68,
+    "title": "Robocop",
+    "genre": "Action, Crime, Sci-Fi",
+    "year": 1987
+  },
+  {
+    "id": 69,
+    "title": "Robocop 2",
+    "genre": "Action, Crime, Sci-Fi",
+    "year": 1990
+  },
+  {
+    "id": 70,
+    "title": "Robocop 3",
+    "genre": "Action, Crime, Sci-Fi",
+    "year": 1993
+  },
+  {
+    "id": 71,
+    "title": "Mad Max",
+    "genre": "Action, Adventure, Sci-Fi",
+    "year": 1979
+  },
+  {
+    "id": 72,
+    "title": "Mad Max 2: The Road Warrior",
+    "genre": "Action, Adventure, Sci-Fi",
+    "year": 1981
+  },
+  {
+    "id": 73,
+    "title": "Mad Max Beyond Thunderdome",
+    "genre": "Action, Adventure, Sci-Fi",
+    "year": 1985
+  },
+  {
+    "id": 74,
+    "title": "Escape from New York",
+    "genre": "Action, Adventure, Sci-Fi",
+    "year": 1981
+  },
+  {
+    "id": 75,
+    "title": "Escape from L.A.",
+    "genre": "Action, Adventure, Sci-Fi",
+    "year": 1996
+  },
+  {
+    "id": 76,
+    "title": "The Warriors",
+    "genre": "Action, Crime, Thriller",
+    "year": 1979
+  },
+  {
+    "id": 77,
+    "title": "First Blood",
+    "genre": "Action, Adventure, Drama",
+    "year": 1982
+  },
+  {
+    "id": 78,
+    "title": "The Road Warrior",
+    "genre": "Action, Adventure, Sci-Fi",
+    "year": 1981
+  },
+  {
+    "id": 79,
+    "title": "Total Recall",
+    "genre": "Action, Sci-Fi, Thriller",
+    "year": 1990
+  },
+  {
+    "id": 80,
+    "title": "Terminator 2: Judgment Day",
+    "genre": "Action, Sci-Fi",
+    "year": 1991
+  },
+  {
+    "id": 81,
+    "title": "Predator",
+    "genre": "Action, Adventure, Sci-Fi",
+    "year": 1987
+  },
+  {
+    "id": 82,
+    "title": "Commando",
+    "genre": "Action, Adventure, Thriller",
+    "year": 1985
+  },
+  {
+    "id": 83,
+    "title": "The Running Man",
+    "genre": "Action, Sci-Fi, Thriller",
+    "year": 1987
+  },
+  {
+    "id": 84,
+    "title": "The 6th Day",
+    "genre": "Action, Mystery, Sci-Fi",
+    "year": 2000
+  },
+  {
+    "id": 85,
+    "title": "End of Days",
+    "genre": "Action, Fantasy, Horror",
+    "year": 1999
+  },
+  {
+    "id": 86,
+    "title": "Universal Soldier",
+    "genre": "Action, Sci-Fi",
+    "year": 1992
+  },
+  {
+    "id": 87,
+    "title": "Bloodsport",
+    "genre": "Action, Biography, Drama",
+    "year": 1988
+  },
+  {
+    "id": 88,
+    "title": "Kickboxer",
+    "genre": "Action, Sport",
+    "year": 1989
+  },
+  {
+    "id": 89,
+    "title": "Sudden Death",
+    "genre": "Action, Crime, Drama",
+    "year": 1995
+  },
+  {
+    "id": 90,
+    "title": "The Fifth Element",
+    "genre": "Action, Adventure, Sci-Fi",
+    "year": 1997
+  },
+  {
+    "id": 91,
+    "title": "Pulp Fiction",
+    "genre": "Crime, Drama",
+    "year": 1994
+  },
+  {
+    "id": 92,
+    "title": "12 Monkeys",
+    "genre": "Mystery, Sci-Fi, Thriller",
+    "year": 1995
+  },
+  {
+    "id": 93,
+    "title": "Armageddon",
+    "genre": "Action, Adventure, Sci-Fi",
+    "year": 1998
+  },
+  {
+    "id": 94,
+    "title": "The Last Boy Scout",
+    "genre": "Action, Comedy, Crime",
+    "year": 1991
+  },
+  {
+    "id": 95,
+    "title": "The Siege",
+    "genre": "Action, Thriller",
+    "year": 1998
+  },
+  {
+    "id": 96,
+    "title": "Mercury Rising",
+    "genre": "Action, Crime, Drama",
+    "year": 1998
+  },
+  {
+    "id": 97,
+    "title": "The Jackal",
+    "genre": "Action, Crime, Thriller",
+    "year": 1997
+  },
+  {
+    "id": 98,
+    "title": "Striking Distance",
+    "genre": "Action, Crime, Mystery",
+    "year": 1993
+  },
+  {
+    "id": 99,
+    "title": "Hudson Hawk",
+    "genre": "Action, Adventure, Comedy",
+    "year": 1991
+  },
+  {
+    "id": 100,
+    "title": "The Last Man Standing",
+    "genre": "Action, Crime, Drama",
+    "year": 1996
+  }
+]

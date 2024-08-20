@@ -1,35 +1,49 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MoviesApi.Models;
+using MoviesApi.Services;
 
-namespace MoviesApi.Controllers;
-
-[ApiController]
-[Route("[controller]")] // https://localhost:7284/Movie
-public class MovieController : ControllerBase
-{
-
-    private static List<Movie> movies = new List<Movie>();
-    private static int id = 0;
-
-    [HttpPost("v1/add")]
-    public void AddMovie([FromBody] Movie movie)
+namespace MoviesApi.Controllers
     {
-        movie.Id = id++;
-        movies.Add(movie);
-        Console.WriteLine(movie.Title);
-        Console.WriteLine(movie.Year);
-    }
+    [ApiController]
+    [Route("[controller]")] //https://localhost:PORT/Movie
+    public class MovieController : ControllerBase
+        {
+        private readonly MovieService _movieService;
 
-    [HttpGet("v1/list")]
-    public IEnumerable<Movie> GetMoviesList()
-    {
-        return movies;
-    }
+        public MovieController(MovieService movieService)
+            {
+            _movieService = movieService;
+            }
 
-    [HttpGet("v1/{id}")]
-    public Movie? GetMovieById(int id)
-    {
-        return movies.FirstOrDefault(movie => movie.Id == id);
+        [HttpPost("v1/add")]
+        public IActionResult AddMovie([FromBody] Movie movie)
+            {
+            _movieService.AddMovie(movie);
+            return Ok(movie);
+            }
+
+        [HttpPost("v1/add-multiple")]
+        public IActionResult AddMultipleMovies([FromBody] IEnumerable<Movie> movies)
+            {
+            _movieService.AddMovies(movies);
+            return Ok(movies);
+            }
+
+        [HttpGet("v1/list")] //https://localhost:PORT/Movie/v1/list?pageNumber=1&pageSize=10
+        public IActionResult GetMoviesList([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)   {
+            var movies = _movieService.GetMovies(pageNumber, pageSize);
+            return Ok(movies);
+            }
+
+        [HttpGet("v1/{id}")]
+        public IActionResult GetMovieById(int id)
+            {
+            var movie = _movieService.GetMovieById(id);
+            if (movie == null)
+                {
+                return NotFound();
+                }
+            return Ok(movie);
+            }
+        }
     }
-}
-   
