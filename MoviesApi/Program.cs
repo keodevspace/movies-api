@@ -52,6 +52,7 @@ using (var scope = app.Services.CreateScope())
 // Configura o pipeline de requisição HTTP.
 if (app.Environment.IsDevelopment())
     {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
     }

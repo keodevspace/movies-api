@@ -1,9 +1,11 @@
 # Movies Api
 This is a simple RESTful API that allows you to manage movies and their categories.
 
+![Image](src/assets/movies-api-swagger.png)]
+
 ## Swagger Endpoint
 The API is available at the following endpoint:
-https://localhost:5001/swagger/MoviesApi/swagger.json
+https://localhost:7284/swagger/index.html
 
 ## Installation
 1. Clone the repository
@@ -14,7 +16,7 @@ https://localhost:5001/swagger/MoviesApi/swagger.json
 6. Install SQLite extension in IDE to view the database movies.db
 
 ## Technologies
-- .NET 8
+- .NET 6.0
 - ASP.NET Core
 - Entity Framework Core
 - Dependency Injection

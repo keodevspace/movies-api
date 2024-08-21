@@ -24,6 +24,11 @@ namespace MoviesApi.Services
                 .ToListAsync();
             }
 
+        public Movie GetMovieById(int id)
+            {
+            return _context.Movies.Find(id);
+            }
+
         public void AddMovie(Movie movie)
             {
             _context.Movies.Add(movie);
@@ -36,9 +41,30 @@ namespace MoviesApi.Services
             _context.SaveChanges();
             }
 
-        public Movie? GetMovieById(int id)
+
+        public void UpdateMovie(int id, Movie movie) {
+            _context.Movies.Update(movie);
+            _context.SaveChanges();
+            }
+
+        public void DeleteMovieById(int id) {
+            var movie = _context.Movies.Find(id);
+            if (movie != null)
+                {
+                _context.Movies.Remove(movie);
+                _context.SaveChanges();
+                }
+            }
+
+        public void DeleteMultipleMovies()
             {
-            return _context.Movies.Find(id);
+            var movies = _context.Movies.ToList();
+            if (movies.Any())
+                {
+                _context.Movies.RemoveRange(movies);
+                _context.SaveChanges();
+                }
             }
         }
     }
+

@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\MoviesApi",
+    "\\MoviesApi\\Properties"
   ],
-  "SelectedNode": "\\MoviesApi.sln",
+  "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
 }
