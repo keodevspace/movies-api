@@ -1,5 +1,5 @@
 # Movies Api
-This is a simple RESTful API that allows you to manage movies and their categories.
+This is a simple RESTful API that allows you to manage a best action movies list of all time.
 
 ![Movie API Swagger url image](MoviesApi/src/assets/movies-api-swagger.png)
 
