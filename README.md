@@ -1,7 +1,7 @@
 # Movies Api
 This is a simple RESTful API that allows you to manage movies and their categories.
 
-![Movie API Swagger url image](MovieApi/src/assets/movies-api-swagger.png)]
+![Movie API Swagger url image](MoviesApi/src/assets/movies-api-swagger.png)
 
 ## Swagger Endpoint
 The API is available at the following endpoint:
