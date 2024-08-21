@@ -4,6 +4,7 @@ using MoviesApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,9 +15,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Verifica se o diretório do banco de dados existe, caso contrário, cria-o
+var databasePath = Path.Combine(Directory.GetCurrentDirectory(), "src", "Database");
+if (!Directory.Exists(databasePath))
+    {
+    Directory.CreateDirectory(databasePath);
+    }
+
 // Registra o DbContext com SQLite
 builder.Services.AddDbContext<MoviesContext>(options =>
-    options.UseSqlite("Data Source=./Database/movies.db"));
+    options.UseSqlite($"Data Source={Path.Combine(databasePath, "movies.db")}"));
 
 // Registra o MovieService como Scoped
 builder.Services.AddScoped<MovieService>();
