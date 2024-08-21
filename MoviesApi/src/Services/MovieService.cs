@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using MoviesApi.Data;
+using MoviesApi.DataContext;
 using MoviesApi.Models;
 
 namespace MoviesApi.Services

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MoviesApi.Data;
+using MoviesApi.DataContext;
 using MoviesApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
