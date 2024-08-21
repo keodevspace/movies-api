@@ -24,7 +24,7 @@ namespace MoviesApi.Services
                 .ToListAsync();
             }
 
-        public Movie GetMovieById(int id)
+        public Movie? GetMovieById(int id)
             {
             return _context.Movies.Find(id);
             }
