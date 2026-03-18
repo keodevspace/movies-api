@@ -5,21 +5,8 @@ package graph
 // This import "context" is necessary for the resolver functions to handle request contexts, which can include deadlines, cancellation signals, and other request-scoped values.
 // The "fmt" package is used for formatting strings, which is helpful for generating unique IDs for new movies.
 // The "github.com/keodevspace/movie-api/graph/model" import is necessary to access the data models defined for the GraphQL schema, such as Movie and NewMovie.
-import (
-	"context"
-	"fmt"
+import "github.com/keodevspace/movie-api/internal"
 
-	"github.com/keodevspace/movie-api/graph/model"
-)
-
-// This func is a resolver for the addMovie mutation. It creates a new movie based on the input and adds it to the store.
-func (r *mutationResolver) AddMovie(ctx context.Context, input model.NewMovie) (*model.Movie, error) {
-	movie := &model.Movie{
-		ID:    fmt.Sprintf("M%d", len(r.Store.Movies)+1),
-		Title: input.Title,
-		Genre: input.Genre,
-	}
-	// Add the new movie to the store's movie list
-	r.Store.MovieList = append(r.Store.MovieList, movie)
-	return movie, nil
+type Resolver struct {
+	Store *internal.DataStore
 }
