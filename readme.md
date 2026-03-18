@@ -1,25 +1,28 @@
 # 🎬 Movie API - Estudo de GraphQL com Go
-Este projeto é uma prática guiada para entender os fundamentos de pacotes, visibilidade e geração de código no Go usando o framework gqlgen.
 
-## 🛠️ Passo a Passo da Construção
+Este projeto é uma prática guiada desenvolvida para consolidar fundamentos de **Engenharia de Software** no ecossistema Go. O foco está na aplicação de conceitos como **visibilidade de pacotes (encapsulamento)**, **Injeção de Dependência (DI)** e o fluxo de **geração de código** utilizando o framework `gqlgen`.
 
-- Passo 1: Limpeza Total
-Para garantir que não haja conflitos de pacotes antigos, limpe o ambiente:
+---
+
+## 🏗️ Arquitetura e Passo a Passo
+
+### Passo 1: Inicialização e Gerenciamento de Dependências
+Diferente do .NET, onde o NuGet lida com abstrações complexas, no Go o `go mod` é direto. Iniciamos o namespace e estruturamos os diretórios para separar a lógica de transporte (GraphQL) da lógica de domínio (Internal).
+
 ````bash
+# Limpeza para evitar conflitos de pacotes antigos
 Remove-Item -Recurse -Force graph, internal, server.go, go.mod, go.sum, gqlgen.yml
-````
 
-- Passo 2: Inicialização do Projeto
-Defina o Namespace do projeto e baixe as dependências base:
-````bash
-go mod init github.com/keodevspace/movie-api
-go get github.com/99designs/gqlgen
+# Inicialização
+go mod init [github.com/keodevspace/movie-api](https://github.com/keodevspace/movie-api)
+go get [github.com/99designs/gqlgen](https://github.com/99designs/gqlgen)
 mkdir graph
 mkdir internal
 ````
 
-- Passo 3: O Contrato (Schema)
-Crie o arquivo graph/schema.graphqls. Ele é a "única fonte da verdade" da API:
+### Passo 2: Design Schema-First (O Contrato)
+A API é definida pelo contrato. O arquivo graph/schema.graphqls é a Single Source of Truth (Única Fonte da Verdade). Aqui definimos os tipos, queries e mutations que o gerador de código usará como base.
+
 ````GraphQL
 type Movie {
   id: ID!
@@ -41,62 +44,39 @@ type Mutation {
 }
 ````
 
-- Passo 4: O "Banco de Dados" In-Memory
-Crie o arquivo internal/store.go.
+### Passo 3: Persistência In-Memory e Encapsulamento
+Criamos o internal/store.go. Note que em Go, a capitalização define a visibilidade (Público/Privado). <br>
 
-Nota de Estudo: Usamos MovieList com "M" maiúsculo para que o campo seja exportado (público) para outros pacotes.
+Utilizamos um campo exportado (MovieList) para permitir que pacotes externos interajam com o estado da aplicação, simulando um repositório.
+
 ````Go
 package internal
 
-import "github.com/keodevspace/movie-api/graph/model"
+import "[github.com/keodevspace/movie-api/graph/model](https://github.com/keodevspace/movie-api/graph/model)"
 
 type DataStore struct {
-	MovieList []*model.Movie 
+  MovieList []*model.Movie
 }
 
 func NewStore() *DataStore {
-	return &DataStore{
-		MovieList: make([]*model.Movie, 0),
-	}
+  return &DataStore{
+    MovieList: make([]*model.Movie, 0),
+  }
 }
 ````
 
-- Passo 5: Configuração e Geração
-Crie o gqlgen.yml na raiz:
-````YAML
-schema:
-  - graph/*.graphqls
-exec:
-  filename: graph/generated.go
-  package: graph
-model:
-  filename: graph/model/models_gen.go
-  package: model
-resolver:
-  layout: follow-schema
-  dir: graph
-  package: graph
-````
-Rode o gerador para criar os modelos e o código de runtime:
+### Passo 4: Automação e Geração de Código
+O arquivo gqlgen.yml mapeia como o código gerado deve se comportar. Ao rodar o gerador, o Go cria o generated.go (runtime) e os modelos necessários, garantindo type-safety total.
 ````bash
-go run github.com/99designs/gqlgen generate
+# Rode o gerador para criar os modelos e o código de runtime
+go run [github.com/99designs/gqlgen](https://github.com/99designs/gqlgen) generate
 ````
 
-- Passo 6: Resolvers (A Lógica)
-Para evitar erros de "Duplicate Method", separamos a definição da implementação.
-
-No arquivo graph/resolver.go (Apenas a estrutura):
+### Passo 5: Implementação dos Resolvers (Lógica de Negócio)
+Para manter o princípio da responsabilidade única, separamos a estrutura do Resolver da implementação dos métodos:
+- Resolver.go: Define a estrutura e as dependências (Injeção da Store). <br>
+- Schema.resolvers.go: Contém a implementação real das Queries e Mutations.
 ````Go
-package graph
-
-import "github.com/keodevspace/movie-api/internal"
-
-type Resolver struct {
-    Store *internal.DataStore
-}
-No arquivo graph/schema.resolvers.go (A lógica):
-
-Go
 func (r *mutationResolver) AddMovie(ctx context.Context, input model.NewMovie) (*model.Movie, error) {
     newMovie := &model.Movie{
         ID:    fmt.Sprintf("M-%d", len(r.Store.MovieList)+1),
@@ -112,26 +92,30 @@ func (r *queryResolver) Movies(ctx context.Context) ([]*model.Movie, error) {
 }
 ````
 
-- Passo 7: O Servidor (Main)
-Crie o server.go para ligar os pontos e injetar a dependência da Store no Resolver.
+### Passo 6: O Servidor (Main)
+Crie o server.go para ligar os pontos e realizar a injeção de dependência da Store no Resolver. <br>
 
-## 🧠 Desafio de Revisão
-No arquivo server.go, fazemos a injeção assim:
+---
+
+### 🧠 Desafio de Arquitetura (Review)
+Ao configurar o server.go, realizamos a injeção assim:<br>
 Resolvers: &graph.Resolver{Store: myStore}
 
-Pergunta: Se alterarmos o campo de Store para store (minúsculo) no arquivo resolver.go, o que acontece com a linha acima no server.go?
-Resposta: O código não compilará, pois campos iniciados com letra minúscula são privados ao pacote original.
+Pergunta de Design: Se alterarmos o campo Store para store (minúsculo) no arquivo resolver.go, o que acontece?<br>
 
-## O Fluxo da Informação
-1 - O Cliente faz uma requisição.<br>
-2 - O server.go recebe e passa para o generated.go.<br>
-3 - O generated.go valida se a requisição está de acordo com o schema.graphqls.<br>
-4 - Se estiver OK, ele chama o método correspondente no schema.resolvers.go.<br>
-5 - O Resolver usa o que estiver guardado no resolver.go (o banco) para processar.<br>
-5 - O resultado volta o caminho todo até o cliente.<br>
+Resposta Técnica: O código apresentará erro de compilação. Em Go, identificadores iniciados com letra minúscula são privados ao pacote. Isso reforça o controle de acesso e protege a integridade dos dados entre diferentes camadas da aplicação.
 
-## Filmes para testar a API
 
+### 🔄 Fluxo da Informação
+- Transporte: O server.go recebe o payload JSON via HTTP e entrega para o gqlgen.
+- Marshalling: O generated.go valida se a requisição está de acordo com o schema.graphqls.
+- Execution: Se estiver OK, ele chama o método correspondente no schema.resolvers.go.
+- Data: O Resolver usa a Store (o "banco" na memória RAM) para processar a lógica.
+- Response: O resultado volta o caminho todo até o cliente com o dado tipado.
+
+
+### 🧪Testando a API
+Adicionar Filme (Mutation):
 ````GraphQL
 mutation {
   addMovie(input: {
@@ -144,6 +128,7 @@ mutation {
   }
 }
 ````
+Listar Filmes (Query):
 ````GraphQL
 query {
   movies {
@@ -153,35 +138,20 @@ query {
   }
 }
 ````
-
-<br> 🧠 O que está acontecendo no seu código Go?
-
-Recepção: O server.go recebe o JSON e entrega para o gqlgen. <br>
-
-Execução: O gqlgen chama a função AddMovie que você acabou de colar no schema.resolvers.go.
-
-Lógica: * newMovie := &model.Movie{...} cria o objeto do filme na memória RAM.
-
-r.Store.MovieList = append(...) coloca esse filme dentro da sua lista internal/store.go.
-
-Resposta: O servidor devolve o filme com o ID gerado (ex: M-1).
-
-
-````GraphQL
-
+Exemplo de Resposta:
+````JSON
+{
   "data": {
     "movies": [
       {
         "id": "M-1",
         "title": "Rocky Balboa",
         "genre": "Drama/Esporte"
-      },
-      {
-        "id": "M-2",
-        "title": "Rambo: First Blood",
-        "genre": "Drama/Esporte"
       }
     ]
   }
 }
 ````
+
+----
+Roadmap: Próxima evolução focará em Middlewares para logs e Autenticação JWT.
