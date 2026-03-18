@@ -133,32 +133,17 @@ Resposta: O código não compilará, pois campos iniciados com letra minúscula 
 ## Filmes para testar a API
 
 ````GraphQL
-mutation AddStalloneMovies {
-  rocky: addMovie(input: { title: "Rocky", genre: "Drama/Action" }) {
+mutation {
+  addMovie(input: {
+    title: "Rocky Balboa",
+    genre: "Drama/Esporte"
+  }) {
     id
     title
-  }
-  rambo: addMovie(input: { title: "First Blood", genre: "Action/Thriller" }) {
-    id
-    title
-  }
-  cobr: addMovie(input: { title: "Cobra", genre: "Action/Crime" }) {
-    id
-    title
-  }
-  demoman: addMovie(input: { title: "Demolition Man", genre: "Sci-Fi/Action" }) {
-    id
-    title
-  }
-  expend: addMovie(input: { title: "The Expendables", genre: "Action" }) {
-    id
-    title
+    genre
   }
 }
 ````
-- Slice de Ponteiros ([]*model.Movie): Note que cada filme na lista é &model.Movie{}. Em Go, o & pega o endereço de memória, e o * no tipo (MovieList []*model.Movie) diz que a lista guarda esses endereços. Isso é mais eficiente em termos de memória do que passar cópias inteiras do objeto.
-- Iniciação de Slice: Estamos usando a sintaxe literal []*model.Movie{...} para criar e preencher o slice de uma vez só, diferente do make() que usávamos antes.
-
 ````GraphQL
 query {
   movies {
@@ -169,3 +154,34 @@ query {
 }
 ````
 
+<br> 🧠 O que está acontecendo no seu código Go?
+
+Recepção: O server.go recebe o JSON e entrega para o gqlgen. <br>
+
+Execução: O gqlgen chama a função AddMovie que você acabou de colar no schema.resolvers.go.
+
+Lógica: * newMovie := &model.Movie{...} cria o objeto do filme na memória RAM.
+
+r.Store.MovieList = append(...) coloca esse filme dentro da sua lista internal/store.go.
+
+Resposta: O servidor devolve o filme com o ID gerado (ex: M-1).
+
+
+````GraphQL
+
+  "data": {
+    "movies": [
+      {
+        "id": "M-1",
+        "title": "Rocky Balboa",
+        "genre": "Drama/Esporte"
+      },
+      {
+        "id": "M-2",
+        "title": "Rambo: First Blood",
+        "genre": "Drama/Esporte"
+      }
+    ]
+  }
+}
+````
